@@ -40,8 +40,26 @@
   <main>
     <div class="jumbotron">
       <h1>Welcome to my profile page</h1>
-      <p>Je m'appelle <%= user.prenom %> <%= user.nom %> </p>
+      <p>Je m'appelle <%= user.premon %> <%= user.nom %> </p>
     </div>
+    <h1>Update your user below</h1>
+    <form name="updateUserForm" method="POST" action="/update/user/<%=user.id%>">
+
+      <div class="form-group">
+        <label>Prenom</label>
+        <input class="form-control" type="text" name="premon" value="<%= user.premon %> ">
+      </div>
+      <div class="form-group">
+        <label>Nom</label>
+        <input class="form-control" type="text" name="nom" value="<%= user.nom %>">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input class="form-control" type="text" name="mail" value="<%= user.mail %> ">
+      </div>
+
+      <input type="submit" value="Create" class="btn btn-info" id="saveButton">
+    </form>
   </main>
 
   <footer>

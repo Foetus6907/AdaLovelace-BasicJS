@@ -30,6 +30,27 @@ server.post('/user', (request, response) => {
   response.status(201).render('user.ejs', {user: user})
 })
 
+server.post('/update/user/:id', (request, response) => {
+  console.log('update user');
+  const newPre = request.body['premon']
+  const newNom = request.body['nom']
+  const newMail = request.body['mail']
+
+  const user = users.find((user) => {
+    return user.id == request.params['id']
+  })
+
+  user.nom = newNom || user.nom
+  user.premon = newPre || user.premon
+  user.mail = newMail || user.mail
+
+  if (user !== undefined) {
+    response.status(200).render('user.ejs', { user: user })
+  } else {
+    response.status(404).send("Utilisateur non trouvé");
+  }
+})
+
 server.get('/user/:id', (request, response) => {
   console.log('want user info', users);
   const user = users.find((user) => {
