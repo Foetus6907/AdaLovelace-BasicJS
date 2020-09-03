@@ -81,9 +81,11 @@ server.get('/delete/user/:id', (request, response) => {
   }
 })
 
-server.listen(3000, () => {
+const serverEcoutant = server.listen(3000, () => {
   console.log('Listenning http://localhost:3000/');
 })
+
+module.exports = serverEcoutant
 
 /*
 server.get('/users', (request, response) => {
