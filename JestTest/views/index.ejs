@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>RebootJS</title>
+
+  <!-- CSS (load bootstrap from a CDN) -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <style>
+    body {
+      padding-top: 50px;
+    }
+  </style>
+</head>
+
+<body class="container">
+
+  <header>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <span class="glyphicon glyphicon glyphicon-globe"></span>
+            Welcome to RebootJS
+          </a>
+
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
+  </header>
+
+  <main>
+    <div class="jumbotron">
+      <h1>This is the index</h1>
+      <p>Existing Users</p>
+      <div class="row">
+        <ul class="list-group col-md-6" d-flex>
+          <% users.forEach(function(user){ %>
+            <a href="user/<%=user.id%>">
+              <li class="list-group-item list-group-item-action">
+                <span class="badge badge-primary badge-pill"><%= user.id%></span>
+                <%=user.nom%> <%=user.premon%> <%=user.mail%>
+              </li>
+            </a>
+              <a class="btn btn-danger" type="submit" href="/delete/user/<%=user.id%>" >delete</a>
+          <% }); %>
+        </ul>
+      </div>
+
+    </div>
+
+
+    <h1>Create your user below</h1>
+    <form name="createUserForm" method="POST" action="user">
+      <div class="form-group">
+        <label>Prenom</label>
+        <input class="form-control" type="text" name="premon">
+      </div>
+      <div class="form-group">
+        <label>Nom</label>
+        <input class="form-control" type="text" name="nom">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input class="form-control" type="text" name="mail">
+      </div>
+      <input type="submit" value="Create" class="btn btn-info" id="saveButton">
+    </form>
+  </main>
+
+  <footer>
+    <p class="text-center text-muted">Have a great training &#128153; Flint Academy</p>
+  </footer>
+
+</body>
+
+</html>
