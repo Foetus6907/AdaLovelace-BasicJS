@@ -1,6 +1,6 @@
 const http = require('http')
 const express = require('express')
-const User = require('./user')
+const User = require('./models/user')
 const bodyParser = require('body-parser')
 const { response } = require('express')
 var _ = require('lodash');

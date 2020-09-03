@@ -1,5 +1,5 @@
 const supertest = require('supertest')
-const server = require('./server');
+const server = require('../../src/server');
 
 afterEach((done) => {
   server.close()
